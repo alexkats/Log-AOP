@@ -45,10 +45,10 @@ public class LoggingAnnotatedMethodsAspect {
         String methodName = joinPoint.getSignature().getName();
         Logger logger = LoggerFactory.getLogger(joinPoint.getSignature().getDeclaringType());
         long resultTime = System.currentTimeMillis();
-        logger.info("Method {} has started", methodName);
+        logger.debug("Method {} has started", methodName);
         Object result = joinPoint.proceed(joinPoint.getArgs());
         resultTime = System.currentTimeMillis() - resultTime;
-        logger.info("Method {} has finished in {} seconds", methodName, resultTime / 1000.0);
+        logger.debug("Method {} has finished in {} seconds", methodName, resultTime / 1000.0);
 
         return result;
     }
